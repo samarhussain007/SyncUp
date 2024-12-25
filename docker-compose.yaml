@@ -1,0 +1,58 @@
+version: "3"
+
+services:
+  node-app:
+    build: .
+    image: node-app
+    ports:
+      - "3000:3000"
+      - "9229:9229"
+    depends_on:
+      - postgres
+      - redis
+
+    command: yarn start
+
+    volumes:
+      - .:/usr/src/node-app
+      - /usr/src/node-app/node_modules
+    networks:
+      - node-network
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    restart: always
+
+  postgres:
+    image: postgres
+    restart: always
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres:/var/lib/postgresql/data
+      # To use a local directory instead:
+      # - ./postgres:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: docker
+      POSTGRES_DB: syncup
+    networks:
+      - node-network
+  redis:
+    image: redis
+    restart: always
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis:/data
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
+    command: ["redis-server", "--bind", "0.0.0.0", "--port", "6379"]
+    networks:
+      - node-network
+
+volumes:
+  postgres:
+  redis:
+
+networks:
+  node-network:
+    driver: bridge

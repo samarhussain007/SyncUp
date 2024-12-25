@@ -1,0 +1,21 @@
+type YoutubeSearchResult {
+  code: Int!
+  message: String!
+  data: [SearchResultOT]
+}
+
+input YoutubeSearchInput {
+  query: String!
+}
+
+type Thumbnail {
+  url: String!
+  width: Int!
+  height: Int!
+}
+
+type SearchResultOT {
+  title: String!
+  thumbnail: Thumbnail!
+  videoUrl: String!
+}
