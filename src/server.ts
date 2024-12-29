@@ -16,6 +16,7 @@ import { makeExecutableSchema } from "graphql-tools";
 import { searchVideos } from "./apis";
 import resolvers from "./resolvers";
 import schema from "./schema";
+import { createJam } from "./services/lobbyGeneration";
 
 const app = express();
 const httpServer = createServer(app);

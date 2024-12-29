@@ -1,10 +1,12 @@
 type Query {
   getListOfVideos(input: YoutubeSearchInput!): YoutubeSearchResult!
+  getAllAvailableJams: [Jam!]!
+  getSpecificJam(input: SpecificJamInput!): Jam!
 }
 
-# type Mutation {
-
-# }
+type Mutation {
+  createJam(createJamInputs: CreateJamInputs!): Jam!
+}
 
 # type Subscription {
 

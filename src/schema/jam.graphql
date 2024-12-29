@@ -1,0 +1,34 @@
+enum JamType {
+  Private
+  Public
+}
+
+input JamConfigsInput {
+  jamType: JamType!
+  jamName: String!
+  noOfFollowers: Int!
+}
+
+input CreateJamInputs {
+  userId: Int!
+  jamInputs: JamConfigsInput!
+}
+
+type JamConfigs {
+  jamType: JamType!
+  jamName: String!
+  noOfFollowers: Int!
+}
+
+type Jam {
+  uniqueId: String!
+  userId: Int!
+  jamCode: String!
+  jamType: String
+  jamName: String
+  NoOfFollowers: Int
+}
+
+input SpecificJamInput {
+  jamCode: String!
+}
