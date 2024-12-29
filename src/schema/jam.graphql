@@ -32,3 +32,8 @@ type Jam {
 input SpecificJamInput {
   jamCode: String!
 }
+
+type JamUpdatePayload {
+  jamCode: String!
+  status: String!
+}

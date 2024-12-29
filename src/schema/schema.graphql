@@ -6,8 +6,9 @@ type Query {
 
 type Mutation {
   createJam(createJamInputs: CreateJamInputs!): Jam!
+  updateJam(jamCode: String!, newStatus: String!): JamUpdatePayload!
 }
 
-# type Subscription {
-
-# }
+type Subscription {
+  onJamUpdate(jamCode: String!): JamUpdatePayload
+}

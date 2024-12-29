@@ -22,6 +22,8 @@
     "googleapis": "^144.0.0",
     "graphql": "^16.9.0",
     "graphql-import-node": "^0.0.5",
+    "graphql-redis-subscriptions": "^2.7.0",
+    "graphql-subscriptions": "^3.0.0",
     "graphql-tools": "^9.0.6",
     "graphql-ws": "^5.16.0",
     "ioredis": "^5.4.2",
